@@ -10,14 +10,28 @@ export default class App extends PureComponent {
     this.update = this.update.bind(this);
     this.addItem = this.addItem.bind(this);
     this.filter = this.filter.bind(this);
+    this.setUpRound = this.setUpRound.bind(this);
+    this.setUpRound();
+  }
+  setUpRound() {
+    this.won = false;
+    this.tries = 8;
     this.target = randomEmoji();
     this.state = {items: distancesToTarget(this.target), guesses: []};
+    this.setState(this.state);
+  }
+  isEnded() {
+    return this.tries === 0;
   }
   update(guess) {
+    this.tries--;
     const new_guesses = this.addItem(guess);
     const new_items = this.filter(guess);
 
     this.setState({items:new_items, guesses: new_guesses})
+    if(new_items.length === 0) {
+      this.won = true;
+    }
   }
   addItem(guess) {
     return this.state.guesses.concat(guess);
@@ -32,11 +46,26 @@ export default class App extends PureComponent {
     return items;
   }
   render() {
+    let winMessage;
+    let loseMessage;
+    let panel;
+    if(this.won) {
+      winMessage = <p>You Won!!</p>;
+    } else if(this.tries === 0) {
+      loseMessage = <p>The solution is {this.target}. Your highest score is {100-this.state.guesses[this.state.guesses.length-1].distance}.</p>
+    } else {
+      panel = <EmojiPanel items={this.state.items} update={this.update}/>;
+    }
+
+
     return (
       <div id="main">
         <Header />
+        {winMessage}
+        {loseMessage}
         <Guesses guesses={this.state.guesses} />
-        <EmojiPanel items={this.state.items} update={this.update}/>
+        {panel}
+        <button onClick={this.setUpRound}>Restart</button>
       </div>
     );
   }
