@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import "./EmojiItem.css";
 
 export default class EmojiItem extends PureComponent {
   constructor(props) {
@@ -10,9 +11,11 @@ export default class EmojiItem extends PureComponent {
   }
   render () {
     return(
-      <button className="btn btn-default btn-lg" onClick={this.onClick}>
+      <span
+      class="component-emoji-item"
+      onClick={this.onClick}>
         {this.props.item.emoji}
-      </button>
+      </span>
     );
   }
 }
