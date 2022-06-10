@@ -50,9 +50,9 @@ export default class App extends PureComponent {
     let loseMessage;
     let panel;
     if(this.won) {
-      winMessage = <p>You Won!!</p>;
+      winMessage = <p>You win!! It took you {this.state.guesses.length} guesses</p>;
     } else if(this.tries === 0) {
-      loseMessage = <p>The solution is {this.target}. Your highest score is {100-this.state.guesses[this.state.guesses.length-1].distance}.</p>
+      loseMessage = <p>The solution is {this.target}.</p>
     } else {
       panel = <EmojiPanel items={this.state.items} update={this.update}/>;
     }
