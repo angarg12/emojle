@@ -1,0 +1,18 @@
+.freezing {
+  font-weight: bold;
+  color: MediumBlue;
+}
+
+.cold {
+  color: MediumTurquoise;
+}
+
+.warm {
+  color: Orange;
+}
+
+.hot {
+  font-weight: bold;
+  color: Crimson;
+}
+

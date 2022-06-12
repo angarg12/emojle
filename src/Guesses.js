@@ -12,8 +12,12 @@ export default class Guesses extends PureComponent {
         <GuessItem key={index} item={item} />
       );
     });
+    const max_guesses = 8;
     return (
-     <div> {items}</div>
+     <div>
+      {items}
+      <p> Guesses left {max_guesses-this.props.guesses.length}</p>
+     </div>
     );
   }
 }
