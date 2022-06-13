@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-
+import "./Guesses.css"
 import GuessItem from "./GuessItem";
 
 export default class Guesses extends PureComponent {
@@ -14,9 +14,8 @@ export default class Guesses extends PureComponent {
     });
     const max_guesses = 8;
     return (
-     <div>
+     <div className="guesses">
       {items}
-      <p> Guesses left {max_guesses-this.props.guesses.length}</p>
      </div>
     );
   }

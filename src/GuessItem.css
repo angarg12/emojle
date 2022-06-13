@@ -1,18 +1,18 @@
-.freezing {
+.guess-item.freezing {
   font-weight: bold;
-  color: MediumBlue;
+  background-color: MediumBlue;
 }
 
-.cold {
-  color: MediumTurquoise;
+.guess-item.cold {
+  background-color: MediumTurquoise;
 }
 
-.warm {
-  color: Orange;
+.guess-item.warm {
+  background-color: Orange;
 }
 
-.hot {
+.guess-item.hot {
   font-weight: bold;
-  color: Crimson;
+  background-color: Crimson;
 }
 

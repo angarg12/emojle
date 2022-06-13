@@ -1,5 +1,25 @@
-.component-emoji-item {
-  padding: 10px;
-  font-weight: normal;
+.emoji-item {
+  text-align: center;
   font-size: xx-large;
 }
+
+.emoji-item.freezing {
+  background-color: MediumBlue;
+  opacity: 90%;
+}
+
+.emoji-item.cold {
+  background-color: MediumTurquoise;
+  opacity: 90%;
+}
+
+.emoji-item.warm {
+  background-color: Orange;
+  opacity: 90%;
+}
+
+.emoji-item.hot {
+  background-color: Crimson;
+  opacity: 90%;
+}
+

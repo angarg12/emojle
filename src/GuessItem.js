@@ -6,21 +6,28 @@ export default class GuessItem extends PureComponent {
     super(props);
   }
   render () {
-    let message = <span class="freezing">Freezing</span>
+    let clazz = "freezing";
+    let message = "Freezing";
     if(this.props.item.distance < 80) {
-      message = <span class="cold">Cold</span>;
+      clazz = "cold";
+      message = "Cold";
     }
     if(this.props.item.distance < 70) {
-      message = <span class="warm">Warm</span>;
+      clazz = "warm";
+      message = "Warm";
     }
     if(this.props.item.distance < 55) {
-      message = <span class="hot">Hot!!</span>;
+      clazz = "hot";
+      message = "Hot!!";
     }
     if(this.props.item.distance == 0) {
-      message = <span class="win">Got it!</span>;
+      clazz = "win";
+      message = "Got it!";
     }
     return(
-      <p>{this.props.item.emoji} {message}</p>
-    );
+    <div className={"guess-item "+clazz}>
+      {this.props.item.emoji} {message}
+    </div>
+)
   }
 }
