@@ -1,10 +1,12 @@
 import React, { PureComponent } from "react";
+import { EmojiDistance } from "./Data";
 import "./GuessItem.css"
 
-export default class GuessItem extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
+export interface Props {
+  item: EmojiDistance
+}
+
+export default class GuessItem extends PureComponent<Props> {
   render () {
     let clazz = "freezing";
     let message = "Freezing";
@@ -25,9 +27,9 @@ export default class GuessItem extends PureComponent {
       message = "Got it!";
     }
     return(
-    <div className={"guess-item "+clazz}>
+    <span className={"guess-item "+clazz}>
       {this.props.item.emoji} {message}
-    </div>
+    </span>
 )
   }
 }

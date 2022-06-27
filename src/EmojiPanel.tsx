@@ -1,11 +1,15 @@
 import React, { PureComponent } from "react";
 import "./EmojiPanel.css";
 import EmojiItem from "./EmojiItem";
+import { EmojiDistance } from "./Data";
 
-export default class EmojiPanel extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
+export interface Props {
+  items: EmojiDistance[],
+  best_guess: number,
+  update: (item: EmojiDistance) => void,
+}
+
+export default class EmojiPanel extends PureComponent<Props> {
   render () {
     var items = this.props.items.map((item, i) => {
       return (
@@ -14,9 +18,9 @@ export default class EmojiPanel extends PureComponent {
     });
 
     return (
-    <div className="emoji-panel">
+    <span className="emoji-panel">
       {items}
-    </div>
+    </span>
     );
   }
 }

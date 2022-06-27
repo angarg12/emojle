@@ -1,13 +1,16 @@
 import React, { PureComponent } from "react";
 import TableCell from "@mui/material/TableCell";
 import "./EmojiItem.css";
+import { EmojiDistance } from "./Data";
 
-export default class EmojiItem extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-  }
-  onClick() {
+export interface Props {
+  item: EmojiDistance,
+  best_guess: number,
+  update: (item: EmojiDistance) => void,
+}
+
+export default class EmojiItem extends PureComponent<Props> {
+  onClick = () => {
     this.props.update(this.props.item);
   }
   render () {
@@ -26,11 +29,11 @@ export default class EmojiItem extends PureComponent {
     }
 
     return(
-      <div
+      <span
       className={"emoji-item " +clazz}
       onClick={this.onClick}>
         {this.props.item.emoji}
-      </div>
+      </span>
     );
   }
 }
